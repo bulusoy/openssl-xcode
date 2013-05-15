@@ -4,3 +4,5 @@ xcuserdata
 xcuserdata/*
 *.xcworkspace/*
 *.xcworkspace
+
+openssl/.DS_Store
