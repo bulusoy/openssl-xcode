@@ -6,3 +6,17 @@ xcuserdata/*
 *.xcworkspace
 
 openssl/.DS_Store
+
+apps/openssl
+
+apps/openssl
+
+crypto/buildinf.h
+
+crypto/cversion.o
+
+libcrypto.a
+
+libssl.a
+
+libssl.a
