@@ -20,3 +20,21 @@ libcrypto.a
 libssl.a
 
 libssl.a
+
+*.a
+
+*.o
+
+crypto/buildinf.h
+
+apps/openssl
+
+crypto/cversion.o
+
+libcrypto.a
+
+libssl.a
+
+libssl.a
+
+crypto/buildinf.h
