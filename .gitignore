@@ -38,3 +38,5 @@ libssl.a
 libssl.a
 
 crypto/buildinf.h
+
+.DS_Store
