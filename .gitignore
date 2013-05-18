@@ -24,7 +24,7 @@ libssl.a
 *.a
 
 *.o
-
+*/*.o
 crypto/buildinf.h
 
 apps/openssl
@@ -40,3 +40,4 @@ libssl.a
 crypto/buildinf.h
 
 .DS_Store
+
