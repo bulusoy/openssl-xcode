@@ -26,4 +26,4 @@ test/*
 rehash.time
 lib
 *.bak
-derts/demo/*.0
+certs/demo/*.0
