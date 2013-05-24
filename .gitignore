@@ -26,3 +26,4 @@ test/*
 rehash.time
 lib
 *.bak
+derts/demo/*.0
