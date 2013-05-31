@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		88963C5117593001001D5E5B /* multiple archs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 88963C5217593001001D5E5B /* Build configuration list for PBXAggregateTarget "multiple archs" */;
+			buildPhases = (
+				88963C5517593007001D5E5B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "multiple archs";
+			productName = "multiple archs";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXFileReference section */
 		9069D28C0FCE659A0042E34C /* libcrypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcrypto.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -67,11 +81,25 @@
 			projectRoot = "";
 			targets = (
 				9069D28B0FCE659A0042E34C /* crypto */,
+				88963C5117593001001D5E5B /* multiple archs */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		88963C5517593007001D5E5B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -rf build\nXCODEBUILD_PATH=/Applications/Xcode.app/Contents/Developer/usr/bin\nXCODEBUILD=$XCODEBUILD_PATH/xcodebuild\n\n$XCODEBUILD -project openssl.xcodeproj -target \"crypto\" -sdk \"iphonesimulator\" -configuration \"Release\" clean build\nmv libcrypto.a /tmp/libcrypto-i386.a\n$XCODEBUILD -project openssl.xcodeproj -target \"crypto\" -sdk \"iphoneos\" -arch \"armv7\" -configuration \"Release\" clean build\nmv libcrypto.a /tmp/libcrypto-armv7.a\n$XCODEBUILD -project openssl.xcodeproj -target \"crypto\" -sdk \"iphoneos\" -arch \"armv7s\" -configuration \"Release\" clean build\nmv libcrypto.a /tmp/libcrypto-armv7s.a\n\nlipo -create -output libcrypto.a /tmp/libcrypto-i386.a /tmp/libcrypto-armv7s.a /tmp/libcrypto-armv7.a\n";
+		};
 		9038ACD812DCAC96004FA0D0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,6 +116,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		88963C5317593001001D5E5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88963C5417593001001D5E5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		9069D1300FCE340B0042E34C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -139,6 +181,7 @@
 				INSTALL_PATH = /usr/local/lib;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = crypto;
+				VALID_ARCHS = "i386 x86_64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -152,6 +195,7 @@
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = crypto;
+				VALID_ARCHS = "i386 x86_64 armv7 armv7s";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -159,6 +203,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		88963C5217593001001D5E5B /* Build configuration list for PBXAggregateTarget "multiple archs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88963C5317593001001D5E5B /* Debug */,
+				88963C5417593001001D5E5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9069D1320FCE340B0042E34C /* Build configuration list for PBXProject "openssl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
