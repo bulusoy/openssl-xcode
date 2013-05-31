@@ -27,3 +27,4 @@ rehash.time
 lib
 *.bak
 certs/demo/*.0
+build/*
